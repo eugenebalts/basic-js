@@ -14,10 +14,13 @@ function createDreamTeam(array) {
     result.sort()
     return result.join('')
   } else return false
+  console.debug
 }
 module.exports = {
   createDreamTeam
+  
 };
+// console.debug(createDreamTeam)
 
 // console.log(createDreamTeam(['Matt ADAMS', 'Ann', 'Dmitry', 'Max', true]));
 
