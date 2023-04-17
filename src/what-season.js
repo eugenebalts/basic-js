@@ -12,9 +12,31 @@ const { NotImplementedError } = require('../extensions/index.js');
  * 
  */
 function getSeason(input) {
-  if (input) {
-
-  } else return 'Unable to determine the time of year!'
+  if (!input) {
+    return 'Unable to determine the time of year!'
+  }
+  try {
+    input.getTime()
+  }
+  catch {
+    throw new Error('Invalid date!') 
+  }
+  let answer = {
+    'winter': [11, 12, 1],
+    'spring' : [2, 3, 4],
+    'summer': [5, 6, 7],
+    'autumn': [8, 9, 10]
+  }
+  let month = input.getMonth()
+  if (month >= 2 && month <= 4) {
+    return 'spring'
+  } else if ((month >= 5 && month <= 7)) {
+    return 'summer'
+  } else if (month >= 8 && month <= 10) {
+    return 'autumn'
+  } else {
+    return 'winter'
+  }
 }
 
 module.exports = {
@@ -22,4 +44,4 @@ module.exports = {
 };
 
 // console.log(getSeason('1, 1, 1'))
-console.log((new Date(2022, 02, 01)))
+console.log(getSeason(new Date(2019, 11, 22, 23, 45, 11, 500)))
