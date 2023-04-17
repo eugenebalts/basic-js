@@ -22,16 +22,6 @@ function getSumOfDigits(n) {
     return result
   } else return  getSumOfDigits(result)
 
-  // let sum = 0;
-  // while (n) {
-  //   sum += n % 10;
-  //   n = Math.floor(n / 10);
-  // }
-  // if (sum < 10) {
-  //   return sum;
-  // } else {
-  //   return getSumOfDigits(sum);
-  // }
 }
 
 module.exports = {
