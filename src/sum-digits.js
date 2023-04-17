@@ -18,7 +18,20 @@ function getSumOfDigits(n) {
     result += n % 10
     n = Math.floor(n / 10)
   }
-  result < 10 ? sum : getSumOfDigits(n)
+  if (result < 10) {
+    return result
+  } else return  getSumOfDigits(result)
+
+  // let sum = 0;
+  // while (n) {
+  //   sum += n % 10;
+  //   n = Math.floor(n / 10);
+  // }
+  // if (sum < 10) {
+  //   return sum;
+  // } else {
+  //   return getSumOfDigits(sum);
+  // }
 }
 
 module.exports = {
