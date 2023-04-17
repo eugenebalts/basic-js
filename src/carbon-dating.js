@@ -18,11 +18,18 @@ const HALF_LIFE_PERIOD = 5730;
  *
  */
 function dateSample(input) {
-  if (typeof input == 'string') {
-    
-  } return false
+  if (typeof input !== 'string' || input > MODERN_ACTIVITY || input * 1 <= 0 || isNaN(input)) {
+    return false;
+  }
+  let k = (0.693 / HALF_LIFE_PERIOD);
+  let log = Math.log(MODERN_ACTIVITY / input)
+  return Math.ceil(log / k)
 }
 
 module.exports = {
   dateSample
 };
+
+
+console.log(dateSample('3.1'))
+
